@@ -7,7 +7,25 @@
     <title>Shop List</title>
 </head>
 <body>
-    
+    <h1>Shop List</h1>
+
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <td><input type="text" placeholder="Product" tabindex="0"></td>
+            <td><input type="number" placeholder="$" tabindex="0" min="0"></td>
+            <td><input type="number" placeholder="1" min="1" value="1"></td>
+        </tbody>
+    </table>
+
+    <button id="addProduct">Add product</button>
+    <button id="Calculate">Calculate</button>
     <script src="script.js"></script>
 </body>
 </html>
