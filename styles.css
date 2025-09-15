@@ -14,6 +14,12 @@ h1{
 }
 
 
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
 button {
     padding: 8px 12px;
     margin-top: 10px;
@@ -23,10 +29,15 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
+    transition: 0.1s;
 }
 
 button:hover {
     background-color: #218838;
+}
+
+button:active{
+    font-size: 12px;
 }
 
 input {
@@ -34,4 +45,22 @@ input {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
+}
+
+th,
+td {
+    border: 1px solid #838383;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background: #a5eeee;
+}
+
+.result{
+    padding-top: 10px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 18px;
 }
