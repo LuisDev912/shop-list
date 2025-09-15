@@ -23,9 +23,12 @@ calcBtn.addEventListener('click', () => {
     let total = 0;
 
     rows.forEach(row => {
+        const name = row.querySelector('td:nth-child(1) input').value;
         const price = parseFloat(row.querySelector('td:nth-child(2) input').value);
         const amount = parseInt(row.querySelector('td:nth-child(3) input').value);
-        total += price * amount;
-        totalSpan.textContent = total;
+        if (name !== isNaN || price !== isNaN || amount !== isNaN){
+            total += price * amount;
+            totalSpan.textContent = total;
+        }
     });
 });
