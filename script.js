@@ -17,3 +17,15 @@ addBtn.addEventListener('click', () => {
 
     tableBody.appendChild(newRow);
 });
+
+calcBtn.addEventListener('click', () => {
+    const rows = document.querySelectorAll('#table-body tr')
+    let total = 0;
+
+    rows.forEach(row => {
+        const price = parseFloat(row.querySelector('td:nth-child(2) input').value);
+        const amount = parseInt(row.querySelector('td:nth-child(3) input').value);
+        total += price * amount;
+        totalSpan.textContent = total;
+    });
+});
