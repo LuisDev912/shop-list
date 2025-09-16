@@ -1,7 +1,5 @@
 //variables
-const table = document.getElementById("table");
 const tableBody = document.getElementById("table-body");
-const buttons = document.querySelector(".buttons"); 
 const addBtn = document.getElementById("addProduct");
 const calcBtn = document.getElementById("Calculate");
 const totalSpan = document.getElementById("total");
@@ -19,8 +17,27 @@ function saveList() {
     localStorage.setItem("shoppingList", JSON.stringify(items));
 }
 
+function loadList() {
+    const data = localStorage.getItem("shoppingList");
+
+    if (data) {
+        const items = JSON.parse(data);
+        tableBody.innerHTML = ""; // cleans the table
+        items.forEach(item => {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td><input type="text" value="${item.name}" placeholder="Product"></td>
+                <td><input type="number" value="${item.price}" placeholder="$" min="0"></td>
+                <td><input type="number" value="${item.amount}" min="1"></td>
+            `;
+
+            tableBody.appendChild(newRow);
+        });
+    }
+}
 
 // functions
+
 addBtn.addEventListener('click', () => {
     const newRow = document.createElement('tr');
 
@@ -47,3 +64,5 @@ calcBtn.addEventListener('click', () => {
     });
     totalSpan.textContent = total;
 });
+
+window.addEventListener("DOMContentLoaded", loadList);

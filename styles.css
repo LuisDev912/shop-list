@@ -47,8 +47,7 @@ input {
     border-radius: 3px;
 }
 
-th,
-td {
+th,td {
     border: 1px solid #838383;
     padding: 8px;
     text-align: center;
