@@ -1,9 +1,24 @@
+//variables
 const table = document.getElementById("table");
 const tableBody = document.getElementById("table-body");
 const buttons = document.querySelector(".buttons"); 
 const addBtn = document.getElementById("addProduct");
 const calcBtn = document.getElementById("Calculate");
 const totalSpan = document.getElementById("total");
+
+//save and load data
+function saveList() {
+    const rows = [...document.querySelectorAll('#table-body tr')]; //this is for use array methods
+    const items = rows.map(row => { 
+        return {
+            name: row.querySelector('td:nth-child(1) input').value,
+            price: row.querySelector('td:nth-child(2) input').value,
+            amount: row.querySelector('td:nth-child(3) input').value
+        };
+    });
+    localStorage.setItem("shoppingList", JSON.stringify(items));
+}
+
 
 // functions
 addBtn.addEventListener('click', () => {
