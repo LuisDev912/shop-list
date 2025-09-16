@@ -48,6 +48,8 @@ addBtn.addEventListener('click', () => {
     `;
 
     tableBody.appendChild(newRow);
+
+    saveList();
 });
 
 calcBtn.addEventListener('click', () => {
@@ -63,6 +65,8 @@ calcBtn.addEventListener('click', () => {
         }
     });
     totalSpan.textContent = total;
+
+    saveList();
 });
 
 window.addEventListener("DOMContentLoaded", loadList);
