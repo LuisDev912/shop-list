@@ -1,9 +1,27 @@
 # shop-list
-This is a **frontend page** where you can insert the name of a product with its price and amount of packages of the product. Then, you can calculate the final price.
+This is a **frontend project** that lets you manage a simple shopping list.  
+You can insert the name of a product, its price, and the amount of units/packages.  
+Then, the app will calculate the total price automatically and save your list in the browser using **localStorage**.
 
 ---
 
-## Tecnologies used in the repositor
+## 🚀 Features
+- Add products with name, price, and amount.
+- Automatic calculation of the total.
+- Data persistence with `localStorage`.
+- Simple and clean UI.
+
+---
+
+## 📌 Roadmap / To Do
+This project is currently in **v1.0.0**. Planned improvements include:
+- [ ] Dark/Light mode.
+- [ ] Delete products individually.
+- [ ] Settings menu.
+- [ ] Accessibility improvements (WCAG 2.1 compliance).
+- [ ] Better responsive design (media queries).
+
+## Tecnologies used
 - HTML 5
 - CSS3
 - JavaScript
