@@ -3,6 +3,7 @@ const tableBody = document.getElementById("table-body");
 const addBtn = document.getElementById("addProduct");
 const calcBtn = document.getElementById("Calculate");
 const totalSpan = document.getElementById("total");
+const resetBtn = document.getElementById('Reset')
 
 //save and load data
 function saveList() {
@@ -29,6 +30,7 @@ function loadList() {
                 <td><input type="text" value="${item.name}" placeholder="Product"></td>
                 <td><input type="number" value="${item.price}" placeholder="$" min="0"></td>
                 <td><input type="number" value="${item.amount}" min="1"></td>
+                <td><button class="deleteButton">X</button></td>
             `;
 
             tableBody.appendChild(newRow);
@@ -45,10 +47,10 @@ addBtn.addEventListener('click', () => {
     <td><input type="text" placeholder="Product" tabindex="0"></td>
     <td><input type="number" placeholder="$" tabindex="0" min="0"></td>
     <td><input type="number" placeholder="1" min="1" value="1"></td>
+    <td><button class="deleteButton">X</button></td>
     `;
 
     tableBody.appendChild(newRow);
-
     saveList();
 });
 
@@ -66,6 +68,17 @@ calcBtn.addEventListener('click', () => {
     });
     totalSpan.textContent = total;
 
+    saveList();
+});
+
+resetBtn.addEventListener('click', () => {
+    localStorage.removeItem("shoppingList");
+    document.getElementById("table-body").innerHTML = `
+    <td><input type="text" placeholder="Product" tabindex="0"></td>
+    <td><input type="number" placeholder="$" tabindex="0" min="0"></td>
+    <td><input type="number" placeholder="1" min="1" value="1"></td>
+    <td><button class="deleteButton">X</button></td>
+    `;
     saveList();
 });
 
