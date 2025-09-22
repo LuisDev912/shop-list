@@ -3,7 +3,25 @@ const tableBody = document.getElementById("table-body");
 const addBtn = document.getElementById("addProduct");
 const calcBtn = document.getElementById("Calculate");
 const totalSpan = document.getElementById("total");
-const resetBtn = document.getElementById('Reset')
+const resetBtn = document.getElementById("Reset");
+
+function createRow(item = { name: "", price: "", amount: 1 }) {
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        <td><input type="text" value="${item.name}" placeholder="Product"></td>
+        <td><input type="number" value="${item.price}" placeholder="$" min="0"></td>
+        <td><input type="number" value="${item.amount}" min="1"></td>
+        <td><button class="deleteButton">X</button></td>
+    `;
+
+    
+    newRow.querySelector('.deleteButton').addEventListener('click', () => {
+        newRow.remove();
+        saveList();
+    });
+
+    return newRow;
+}
 
 //save and load data
 function saveList() {
@@ -35,34 +53,30 @@ function loadList() {
 
             tableBody.appendChild(newRow);
         });
+    } else { //If there isn't anything stored, it will create an empty row
+        tableBody.innerHTML = "";
+        tableBody.appendChild(createRow());
     }
 }
 
 // functions
 
 addBtn.addEventListener('click', () => {
-    const newRow = document.createElement('tr');
-
-    newRow.innerHTML = `
-    <td><input type="text" placeholder="Product" tabindex="0"></td>
-    <td><input type="number" placeholder="$" tabindex="0" min="0"></td>
-    <td><input type="number" placeholder="1" min="1" value="1"></td>
-    <td><button class="deleteButton">X</button></td>
-    `;
-
+    const newRow = createRow();
     tableBody.appendChild(newRow);
     saveList();
 });
 
 calcBtn.addEventListener('click', () => {
-    const rows = document.querySelectorAll('#table-body tr')
+    const rows = document.querySelectorAll('#table-body tr');
     let total = 0;
 
     rows.forEach(row => {
         const name = row.querySelector('td:nth-child(1) input').value;
         const price = parseFloat(row.querySelector('td:nth-child(2) input').value);
         const amount = parseInt(row.querySelector('td:nth-child(3) input').value);
-        if (name !== "" && !isNaN(price) && !isNaN(amount)){
+
+        if (name !== "" && !isNaN(price) && !isNaN(amount)) {
             total += price * amount;
         }
     });
@@ -73,13 +87,9 @@ calcBtn.addEventListener('click', () => {
 
 resetBtn.addEventListener('click', () => {
     localStorage.removeItem("shoppingList");
-    document.getElementById("table-body").innerHTML = `
-    <td><input type="text" placeholder="Product" tabindex="0"></td>
-    <td><input type="number" placeholder="$" tabindex="0" min="0"></td>
-    <td><input type="number" placeholder="1" min="1" value="1"></td>
-    <td><button class="deleteButton">X</button></td>
-    `;
-    saveList();
+    tableBody.innerHTML = "";
+    tableBody.appendChild(createRow()); 
+    totalSpan.textContent = "0";
 });
 
 window.addEventListener("DOMContentLoaded", loadList);
