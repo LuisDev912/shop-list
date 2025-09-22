@@ -38,23 +38,19 @@ function saveList() {
 
 function loadList() {
     const data = localStorage.getItem("shoppingList");
+    tableBody.innerHTML = "";
 
     if (data) {
         const items = JSON.parse(data);
-        tableBody.innerHTML = ""; // cleans the table
-        items.forEach(item => {
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-                <td><input type="text" value="${item.name}" placeholder="Product"></td>
-                <td><input type="number" value="${item.price}" placeholder="$" min="0"></td>
-                <td><input type="number" value="${item.amount}" min="1"></td>
-                <td><button class="deleteButton">X</button></td>
-            `;
-
-            tableBody.appendChild(newRow);
-        });
-    } else { //If there isn't anything stored, it will create an empty row
-        tableBody.innerHTML = "";
+        if (items.length === 0) {
+            tableBody.appendChild(createRow()); // empty row
+        } else {
+            items.forEach(item => {
+                const newRow = createRow(item); // always with the listener
+                tableBody.appendChild(newRow);
+            });
+        }
+    } else {
         tableBody.appendChild(createRow());
     }
 }
@@ -86,9 +82,9 @@ calcBtn.addEventListener('click', () => {
 });
 
 resetBtn.addEventListener('click', () => {
-    localStorage.removeItem("shoppingList");
+    localStorage.setItem("shoppingList", JSON.stringify([])); // storages the empty list
     tableBody.innerHTML = "";
-    tableBody.appendChild(createRow()); 
+    tableBody.appendChild(createRow());
     totalSpan.textContent = "0";
 });
 
