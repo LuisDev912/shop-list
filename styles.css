@@ -12,8 +12,14 @@ body {
     /*default:*/
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: sans-serif;
     transition: background-color 0.3s, color 0.3s;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Arial';
+    text-decoration: underline blue;
+    font-style: italic;
 }
 
 /* funcionality for dark mode */
@@ -28,11 +34,13 @@ body.dark-mode button {
     color: #cfcece;
 }
 
-h1{
-    text-align: center;
-    font-family: 'Arial';
-    text-decoration: underline blue;
-    font-style: italic;
+body.dark-mode th{
+    background-color: #bb86fc;
+    
+}
+
+body.dark-mode button{
+    background-color: #0c998b;
 }
 
 /* buttons */

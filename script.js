@@ -88,4 +88,26 @@ resetBtn.addEventListener('click', () => {
     totalSpan.textContent = "0";
 });
 
+// togle mode
+
+const toggleBtn = document.getElementById('toggle-mode');
+
+
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    // save the preferences on localStorage
+    localStorage.setItem("theme",
+        document.body.classList.contains("dark-mode") ? "dark" : "light"
+    );
+});
+
+// load selected team
+window.addEventListener("DOMContentLoaded", () => {
+    loadList();
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+});
+
 window.addEventListener("DOMContentLoaded", loadList);
