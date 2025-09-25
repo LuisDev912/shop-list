@@ -28,15 +28,14 @@ body.dark-mode {
     color: #eee;
 }
 
-body.dark-mode input,
-body.dark-mode button {
+body.dark-mode input{
     background-color: #333;
     color: #cfcece;
 }
 
 body.dark-mode th{
     background-color: #bb86fc;
-    
+    color: #e7e6e6;
 }
 
 body.dark-mode button{
@@ -54,8 +53,8 @@ body.dark-mode button{
 button {
     padding: 8px 12px;
     margin-top: 10px;
-    background-color: #28a745;
-    color: white;
+    background-color: #1e88e5;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -64,7 +63,7 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #145a97;
 }
 
 button:active{
@@ -74,8 +73,8 @@ button:active{
 #toggle-mode{
     padding: 10px 20px;
     margin: 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #43a047;
+    color: #ffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -86,12 +85,12 @@ button:active{
 input {
     width: 90%;
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #bdbdbd;
     border-radius: 3px;
 }
 
 th,td {
-    border: 1px solid #838383;
+    border: 1px solid #bdbdbd;
     padding: 8px;
     text-align: center;
 }
