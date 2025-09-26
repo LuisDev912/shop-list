@@ -75,7 +75,6 @@ button:active{
     margin: 20px;
     background-color: #43a047;
     color: #ffff;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -130,5 +129,30 @@ th {
     button{
         width: 100%;
         font-size: 1em;
+    }
+
+    #toggle-mode{
+        margin: auto;
+        width: 100%;
+    }
+
+    /* table */
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    th,
+    td {
+        
+        padding: 5px;
+        font-size: 16px;
+    }
+
+    .result {
+        font-size: 16px;
+        text-align: center;
     }
 }

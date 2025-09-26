@@ -19,7 +19,7 @@ This project is currently in **v1.1.0**. Planned improvements include:
 - [X] Delete products individually.
 - [ ] Settings menu.
 - [ ] Accessibility improvements (WCAG 2.1 compliance).
-- [ ] Better responsive design (media queries).
+- [X] Better responsive design (media queries).
 
 ## Tecnologies used
 - HTML 5
