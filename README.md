@@ -14,7 +14,7 @@ Then, the app will calculate the total price automatically and save your list in
 ---
 
 ## 📌 Roadmap / To Do
-This project is currently in **v1.2.0**. Planned improvements include:
+This project is currently in **v1.3.0**. Planned improvements include:
 - [X] Dark/Light mode.
 - [X] Delete products individually.
 - [ ] Settings menu.

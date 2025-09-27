@@ -180,3 +180,18 @@ footer a:hover{
         text-align: center;
     }
 }
+
+@media print{
+    button, footer, h1{
+        display: none;
+    }
+
+    body{
+        background-color: white;
+        color: black
+    }
+
+    .result{
+        text-align: center;
+    }
+}
