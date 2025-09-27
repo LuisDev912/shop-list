@@ -43,8 +43,17 @@ body.dark-mode button{
 }
 
 body.dark-mode footer{
-    background-color: #535353;
     color: white;
+}
+
+body.dark-mode footer a{
+    text-decoration: none;
+    color: white;
+}
+
+body.dark-mode footer a:hover{
+    text-decoration: underline;
+    color:#e7e6e6;
 }
 
 /* buttons */
@@ -113,22 +122,17 @@ th {
 /* footer */
 
 footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #1a1a1a;
-    color: white;
+    margin-top: 15px;
     text-align: center;
 }
 
 footer a{
     text-decoration: none;
-    color: white
+    color: black
 }
 
 footer a:hover{
-    color: #a6a6a6;
+    color: #494949;
     text-decoration: underline;
 }
 
