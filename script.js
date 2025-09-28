@@ -4,18 +4,18 @@ const addBtn = document.getElementById("addProduct");
 const calcBtn = document.getElementById("Calculate");
 const totalSpan = document.getElementById("total");
 const resetBtn = document.getElementById("Reset");
+let productCounter = 0;
 
 function createRow(item = { name: "", price: "", amount: 1 }) {
-    let counter = 1;
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
-        <td><input id="product-name" type="text" value="${item.name}" placeholder="Product"></td>
-        <td><input id="product-price" type="number" value="${item.price}" placeholder="$" min="0"></td>
-        <td><input id="product-amount" type="number" value="${item.amount}" min="1"></td>
-        <td><button id="delete-product" class="deleteButton">X</button></td>
+        <td><input id="product-name-${productCounter}" type="text" value="${item.name}" placeholder="Product"></td>
+        <td><input id="product-price-${productCounter}" type="number" value="${item.price}" placeholder="$" min="0"></td>
+        <td><input id="product-amount-${productCounter}" type="number" value="${item.amount}" min="1"></td>
+        <td><button id="delete-product-${productCounter}" class="deleteButton">X</button></td>
     `;
-    counter++;
-    
+    productCounter++;
+
     newRow.querySelector('.deleteButton').addEventListener('click', () => {
         newRow.remove();
         saveList();

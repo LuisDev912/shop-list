@@ -62,7 +62,7 @@ body.dark-mode footer a:hover{
 
 .buttons{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 15px;
 }
 
@@ -188,7 +188,7 @@ footer a:hover{
 }
 
 @media print{
-    button, footer, h1{
+    button, footer, h1, #action{
         display: none;
     }
 
