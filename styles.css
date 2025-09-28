@@ -6,7 +6,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #c0c0c0;
-    padding: 20px;
+    padding: 15px;
     max-width: 50%;
     margin: auto;
     /*default:*/
@@ -20,6 +20,7 @@ h1 {
     font-family: 'Arial';
     text-decoration: underline blue;
     font-style: italic;
+    font-size: clamp(1.8rem, calc(5vw + 1rem), 5rem)
 }
 
 /* funcionality for dark mode */
