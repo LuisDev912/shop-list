@@ -23,9 +23,15 @@
         <tbody id="table-body">
             <tr>
                 <label for="product-name" class="sr-only">Product name</label>
-                <td><input id="product-name" type="text" placeholder="Product" tabindex="0"></td>
-                <td><input id="product-price" type="number" placeholder="$" tabindex="0" min="0"></td>
+                <td><input id="product-name" type="text" placeholder="Product"></td>
+
+                <label for="product-price" class="sr-only">Product price</label>
+                <td><input id="product-price" type="number" placeholder="$" min="0"></td>
+
+                <label for="product-amount" class="sr-only">Product amount</label>
                 <td><input id="product-amount" type="number" placeholder="1" min="1" value="1"></td>
+
+                <label for="delete-product" class="sr-only">Delete product</label>
                 <td><button id="delete-product" class="deleteBtn" aria-label="Delete product">X</button></td>
             </tr>
         </tbody>
@@ -37,15 +43,20 @@
         <button id="Reset">Reset list</button>
     </div>
 
-    <div class="result">Total = $<span id="total">0</span></div>
+    <div class="result">Total = $<span id="total" aria-live="polite">0</span></div>
 
     <footer>
         <p>Send me your advices:</p>
         <p>
-            <i class="fa-solid  fa-envelope"></i>
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <span class="sr-only">Email:</span>
             <a href="mailto:luiscallejaenrique@gmail.com">luiscallejaenrique@gmail.com</a> <br>
-            <i class="fas fa-credit-card"></i>Mercado Pago: <span>@luis.410.html</span> <br>
-            <i class="fa-brands fa-github-square"></i><a href="https://github.com/LuisDev912" target="_blank">GitHub</a>
+
+            <i class="fas fa-credit-card" aria-hidden="true"></i>Mercado Pago: <span class="sr-only"></span><span>@luis.410.html</span> <br>
+
+            <i class="fa-brands fa-github-square" aria-hidden="true"></i> 
+            <span class="sr-only">GitHub profile</span>
+            <a href="https://github.com/LuisDev912" target="_blank">GitHub</a>
         </p>
     </footer>
 

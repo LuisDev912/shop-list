@@ -95,7 +95,8 @@ const toggleBtn = document.getElementById('toggle-mode');
 
 toggleBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
-    //toggleBtn.toggleAttribute('aria-pressed', true) bug here
+    const isPressed = toggleBtn.getAttribute("aria-pressed") === "true";
+    toggleBtn.setAttribute("aria-pressed", String(!isPressed));
 
     // save the preferences on localStorage
     localStorage.setItem("theme",
