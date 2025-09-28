@@ -8,10 +8,10 @@ const resetBtn = document.getElementById("Reset");
 function createRow(item = { name: "", price: "", amount: 1 }) {
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
-        <td><input type="text" value="${item.name}" placeholder="Product"></td>
-        <td><input type="number" value="${item.price}" placeholder="$" min="0"></td>
-        <td><input type="number" value="${item.amount}" min="1"></td>
-        <td><button class="deleteButton">X</button></td>
+        <td><input id="product-name" type="text" value="${item.name}" placeholder="Product"></td>
+        <td><input id="product-price" type="number" value="${item.price}" placeholder="$" min="0"></td>
+        <td><input id="product-amount" type="number" value="${item.amount}" min="1"></td>
+        <td><button id="delete-product" class="deleteButton">X</button></td>
     `;
 
     
@@ -95,6 +95,8 @@ const toggleBtn = document.getElementById('toggle-mode');
 
 toggleBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
+    //toggleBtn.toggleAttribute('aria-pressed', true) bug here
+
     // save the preferences on localStorage
     localStorage.setItem("theme",
         document.body.classList.contains("dark-mode") ? "dark" : "light"

@@ -7,7 +7,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #c0c0c0;
     padding: 20px;
-    max-width: 400px;
+    max-width: 50%;
     margin: auto;
     /*default:*/
     background-color: var(--background-color);
@@ -198,4 +198,9 @@ footer a:hover{
     .result{
         text-align: center;
     }
+}
+
+.sr-only {
+    position: absolute;
+    left: -9999px;
 }

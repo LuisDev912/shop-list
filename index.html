@@ -9,22 +9,24 @@
 </head>
 <body>
     <h1>Shop List</h1>
-    <button id="toggle-mode">Toggle Theme</button>
+    <button id="toggle-mode" aria-pressed="false">Toggle dark mode</button>
 
-    <table id="table">
+    <table aria-label="Shopping list" id="table">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Amount</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody id="table-body">
             <tr>
-                <td><input type="text" placeholder="Product" tabindex="0"></td>
-                <td><input type="number" placeholder="$" tabindex="0" min="0"></td>
-                <td><input type="number" placeholder="1" min="1" value="1"></td>
-                <td><button class="deleteBtn">X</button></td>
+                <label for="product-name" class="sr-only">Product name</label>
+                <td><input id="product-name" type="text" placeholder="Product" tabindex="0"></td>
+                <td><input id="product-price" type="number" placeholder="$" tabindex="0" min="0"></td>
+                <td><input id="product-amount" type="number" placeholder="1" min="1" value="1"></td>
+                <td><button id="delete-product" class="deleteBtn" aria-label="Delete product">X</button></td>
             </tr>
         </tbody>
     </table>
