@@ -94,6 +94,12 @@ button:active{
     cursor: pointer;
 }
 
+button:focus,
+input:focus {
+    outline: 2px solid #ff9800;
+    outline-offset: 2px;
+}
+
 /* table */
 
 input {
