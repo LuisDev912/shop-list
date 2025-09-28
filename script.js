@@ -6,6 +6,7 @@ const totalSpan = document.getElementById("total");
 const resetBtn = document.getElementById("Reset");
 
 function createRow(item = { name: "", price: "", amount: 1 }) {
+    let counter = 1;
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
         <td><input id="product-name" type="text" value="${item.name}" placeholder="Product"></td>
@@ -13,7 +14,7 @@ function createRow(item = { name: "", price: "", amount: 1 }) {
         <td><input id="product-amount" type="number" value="${item.amount}" min="1"></td>
         <td><button id="delete-product" class="deleteButton">X</button></td>
     `;
-
+    counter++;
     
     newRow.querySelector('.deleteButton').addEventListener('click', () => {
         newRow.remove();
