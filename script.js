@@ -9,10 +9,13 @@ let productCounter = 0;
 function createRow(item = { name: "", price: "", amount: 1 }) {
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
-        <td><input id="product-name-${productCounter}" type="text" value="${item.name}" placeholder="Product"></td>
-        <td><input id="product-price-${productCounter}" type="number" value="${item.price}" placeholder="$" min="0"></td>
-        <td><input id="product-amount-${productCounter}" type="number" value="${item.amount}" min="1"></td>
-        <td><button id="delete-product-${productCounter}" class="deleteButton">X</button></td>
+        <td><label for="product-name-${productCounter}" class="sr-only">Product name</label><input id="product-name-${productCounter}" type="text" value="${item.name}" placeholder="Product"></td>
+
+        <td><label for="product-price-${productCounter}" class="sr-only">Product price</label><input id="product-price-${productCounter}" type="number" value="${item.price}" placeholder="$" min="0"></td>
+
+        <td><label for="product-amount-${productCounter}" class="sr-only">Product amount</label><input id="product-amount-${productCounter}" type="number" value="${item.amount}" min="1"></td>
+
+        <td><label for="delete-product-${productCounter}" class="sr-only">Delete product</label><button id="delete-product-${productCounter}" class="deleteButton">&times;</button></td>
     `;
     productCounter++;
 
