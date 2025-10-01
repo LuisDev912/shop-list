@@ -152,8 +152,9 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-    padding-top: 50px;
+    padding: 10px;
+    padding-top: 25px;
+    padding-bottom: 50px;
     position: relative;
 }
 
@@ -162,11 +163,12 @@ header h1{
     font-family: 'Arial';
     text-decoration: underline blue;
     font-style: italic;
-    font-size: clamp(1.8rem, calc(5vw + 1rem), 5rem);
+    font-size: clamp(1.2rem, calc(2vw + 1rem), 4rem);
     margin: 0 auto;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    
 }
 
 .sr-only {

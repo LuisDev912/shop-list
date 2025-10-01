@@ -4,7 +4,7 @@
         padding: 10px;
     }
 
-    h1 {
+    header h1 {
         font-size: 1.2em;
         text-decoration: none;
     }
@@ -43,6 +43,13 @@
     .result {
         font-size: 16px;
         text-align: center;
+    }
+
+    header{
+        padding-top: 5px;
+        padding-bottom: 20px;
+
+        
     }
 }
 
