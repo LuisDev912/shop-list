@@ -115,7 +115,7 @@ th {
 
 .result{
     padding-top: 10px;
-    text-align: right;
+    text-align: center;
     font-weight: bold;
     font-size: 18px;
 }
@@ -123,7 +123,7 @@ th {
 /* footer */
 
 footer {
-    margin-top: 15px;
+    margin-top: 75px;
     text-align: center;
 }
 
