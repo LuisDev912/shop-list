@@ -50,6 +50,14 @@ body.dark-mode footer a:hover{
     color:#e7e6e6;
 }
 
+body.dark-mode .menu-btn span {
+    display: block;
+    height: 4px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
 /* buttons */
 
 .buttons{
