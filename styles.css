@@ -179,6 +179,26 @@ header h1{
     
 }
 
+/* sidebar */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #f4f4f4;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
 .sr-only {
     position: absolute;
     left: -9999px;
