@@ -51,13 +51,19 @@
 
         
     }
+
+    /* sidebar */
+
+    #sidebar{
+        display: none;
+    }
 }
 
 /* print media query */
 @media print {
 
     button, footer, h1,
-    #action {
+    #action, #sidebar {
         display: none;
     }
 
