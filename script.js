@@ -96,10 +96,10 @@ resetBtn.addEventListener('click', () => {
 // sidebar
 
 const oppenBtn = document.querySelector('.menu-btn');
-const sdbarContent = document.getElementById('sidebar');
+const sdbarContent = document.querySelector('.sidebar');
 
 oppenBtn.addEventListener('click', () => {
-    sdbarContent.style.left = "5px";
+    sdbarContent.classList.toggle("active");
 });
 
 // togle mode

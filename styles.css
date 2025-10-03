@@ -146,6 +146,7 @@ footer a:hover{
     width: 30px;
     height: 22px;
     cursor: pointer;
+    margin-left: 95%;
 }
 
 .menu-btn span {
@@ -181,7 +182,7 @@ header h1{
 
 /* sidebar */
 
-#sidebar {
+.sidebar {
     position: fixed;
     top: 0;
     left: -250px;
@@ -223,8 +224,10 @@ header h1{
 .load-btn {
     margin-right: 10px;
     text-decoration: none;
-    color: #333;
+    color: #fff;
     font-size: 0.9rem;
+    padding: 8px 12px;
+    margin-top: 10px;
 }
 
 .delete-btn {
@@ -235,6 +238,8 @@ header h1{
     cursor: pointer;
     border-radius: 4px;
     font-size: 0.8rem;
+    padding: 8px 12px;
+    margin-top: 10px;
 }
 
 .sr-only {
