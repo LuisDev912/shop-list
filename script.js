@@ -92,6 +92,16 @@ resetBtn.addEventListener('click', () => {
     totalSpan.textContent = "0";
 });
 
+
+// sidebar
+
+const oppenBtn = document.querySelector('.menu-btn');
+const sdbarContent = document.getElementById('sidebar');
+
+oppenBtn.addEventListener('click', () => {
+    sdbarContent.style.left = "5px";
+});
+
 // togle mode
 
 const toggleBtn = document.getElementById('toggle-mode');
