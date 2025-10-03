@@ -199,6 +199,44 @@ header h1{
     left: 0;
 }
 
+.list-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.list-name {
+    font-weight: bold;
+}
+
+.load-btn {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    border: none;
+    color: #fff;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
 .sr-only {
     position: absolute;
     left: -9999px;
