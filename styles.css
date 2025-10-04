@@ -222,7 +222,6 @@ header h1{
 }
 
 .load-btn {
-    margin-right: 10px;
     text-decoration: none;
     color: #fff;
     font-size: 0.9rem;
@@ -234,12 +233,15 @@ header h1{
     background-color: #e74c3c;
     border: none;
     color: #fff;
-    padding: 5px 8px;
     cursor: pointer;
     border-radius: 4px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     padding: 8px 12px;
     margin-top: 10px;
+}
+
+.delete-btn:hover{
+    background-color: #963227;
 }
 
 .sr-only {
