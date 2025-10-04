@@ -58,6 +58,24 @@ body.dark-mode .menu-btn span {
     transition: 0.3s;
 }
 
+body.dark-mode .sidebar{
+    background-color: #1d1d1d;
+    box-shadow: 2px 0 5px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .delete-btn {
+    background-color: #e74c3c;
+}
+
+body.dark-mode .list-item {
+
+    background-color: #040404;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .saveBtn {
+    background-color: #3d8641;
+}
 /* buttons */
 
 .buttons{
@@ -92,7 +110,6 @@ button:active{
     background-color: #43a047;
     color: #ffff;
     border-radius: 5px;
-    cursor: pointer;
 }
 
 /* table */
@@ -242,6 +259,12 @@ header h1{
 
 .delete-btn:hover{
     background-color: #963227;
+}
+
+.saveBtn{
+    margin-left: 5.2rem;
+    background-color: #3d8641;
+    border-radius: 5px;
 }
 
 .sr-only {

@@ -63,6 +63,10 @@
     .list-item{
         flex-wrap: wrap;
     }
+
+    .saveBtn{
+        margin-left: 0;
+    }
 }
 
 /* print media query */
