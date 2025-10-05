@@ -9,22 +9,45 @@ let productCounter = 0;
 function createRow(item = { name: "", price: "", amount: 1 }) {
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
-        <td><label for="product-name-${productCounter}" class="sr-only">Product name</label><input id="product-name-${productCounter}" type="text" value="${item.name}" placeholder="Product"></td>
-
-        <td><label for="product-price-${productCounter}" class="sr-only">Product price</label><input id="product-price-${productCounter}" type="number" value="${item.price}" placeholder="$" min="0"></td>
-
-        <td><label for="product-amount-${productCounter}" class="sr-only">Product amount</label><input id="product-amount-${productCounter}" type="number" value="${item.amount}" min="1"></td>
-
-        <td><label for="delete-product-${productCounter}" class="sr-only">Delete product</label><button id="delete-product-${productCounter}" class="deleteButton">&times;</button></td>
+        <td><label for="product-name-${productCounter}" class="sr-only">Product name</label>
+            <input id="product-name-${productCounter}" type="text" value="${item.name}" placeholder="Product"></td>
+        <td><label for="product-price-${productCounter}" class="sr-only">Product price</label>
+            <input id="product-price-${productCounter}" type="number" value="${item.price}" placeholder="$" min="0"></td>
+        <td><label for="product-amount-${productCounter}" class="sr-only">Product amount</label>
+            <input id="product-amount-${productCounter}" type="number" value="${item.amount}" min="1"></td>
+        <td><label for="delete-product-${productCounter}" class="sr-only">Delete product</label>
+            <button id="delete-product-${productCounter}" class="deleteButton">&times;</button></td>
     `;
     productCounter++;
 
     newRow.querySelector('.deleteButton').addEventListener('click', () => {
         newRow.remove();
-        getSavedLists();
+        saveDraft();
     });
 
     return newRow;
+}
+
+function saveDraft() {
+    const rows = [...document.querySelectorAll('#table-body tr')];
+    const items = rows.map(row => ({
+        name: row.querySelector('td:nth-child(1) input').value,
+        price: row.querySelector('td:nth-child(2) input').value,
+        amount: row.querySelector('td:nth-child(3) input').value
+    }));
+    localStorage.setItem("currentDraft", JSON.stringify(items));
+}
+
+function loadDraft() {
+    const saved = localStorage.getItem("currentDraft");
+    if (!saved) return;
+    try {
+        const items = JSON.parse(saved);
+        tableBody.innerHTML = "";
+        items.forEach(item => tableBody.appendChild(createRow(item)));
+    } catch (e) {
+        console.error("Error parsing draft:", e);
+    }
 }
 
 //save and load data
