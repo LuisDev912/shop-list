@@ -232,6 +232,7 @@ header h1{
     padding: 8px;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
 }
 
 .list-name {
@@ -265,6 +266,23 @@ header h1{
     margin-left: 5.2rem;
     background-color: #3d8641;
     border-radius: 5px;
+}
+
+#saveListName{
+    margin: 5px;
+    width: 85%;
+    padding: 5px;
+    border: 1px solid #bdbdbd;
+    border-radius: 3px;
+    display: none;
+}
+
+#submitName{
+    display: none;
+}
+
+#saveListName.active, #submitName.active{
+    display: block;
 }
 
 .sr-only {

@@ -60,10 +60,6 @@
         width: 50vw;
     }
 
-    .list-item{
-        flex-wrap: wrap;
-    }
-
     .saveBtn{
         margin-left: 0;
     }

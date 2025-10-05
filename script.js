@@ -97,9 +97,17 @@ resetBtn.addEventListener('click', () => {
 
 const oppenBtn = document.querySelector('.menu-btn');
 const sdbarContent = document.querySelector('.sidebar');
+const saveBtn = document.querySelector('.saveBtn');
+const saveName = document.getElementById('saveListName');
+const submitBtn = document.getElementById('submitName');
 
 oppenBtn.addEventListener('click', () => {
     sdbarContent.classList.toggle("active");
+});
+
+saveBtn.addEventListener('click', () => {
+    saveName.classList.toggle('active');
+    submitBtn.classList.toggle('active');
 });
 
 // togle mode
