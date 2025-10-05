@@ -29,7 +29,16 @@ function createRow(item = { name: "", price: "", amount: 1 }) {
 
 //save and load data
 function getSavedLists() {
-    return JSON.parse(localStorage.getItem("shoppingLists")) || [];
+    const saved = localStorage.getItem("lists");
+    if (!saved) {
+        return []; // returns an empty array if there isn't anything
+    }
+    try {
+        return JSON.parse(saved);
+    } catch (e) {
+        console.error("Error when parsing JSON:", e);
+        return []; // fallback 
+    }
 }
 
 // save all lists 
@@ -118,6 +127,37 @@ function renderSidebar() {
     });
 }
 
+submitBtn.addEventListener('click', () => {
+    const name = saveName.value.trim();
+    if (!name) return;
+
+    // take items from the table
+    const rows = [...document.querySelectorAll('#table-body tr')];
+    const items = rows.map(row => ({
+        name: row.querySelector('td:nth-child(1) input').value,
+        price: row.querySelector('td:nth-child(2) input').value,
+        amount: row.querySelector('td:nth-child(3) input').value
+    }));
+
+    const newList = {
+        id: Date.now(),
+        name,
+        date: new Date().toLocaleString(),
+        items
+    };
+
+    const lists = getSavedLists();
+    lists.push(newList);
+    setSavedLists(lists);
+
+    // clean table
+    tableBody.innerHTML = "";
+    tableBody.appendChild(createRow());
+    totalSpan.textContent = "0";
+
+    saveName.value = "";
+    renderSidebar();
+});
 
 // togle mode
 
