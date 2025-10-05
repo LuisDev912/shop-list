@@ -21,7 +21,7 @@ function createRow(item = { name: "", price: "", amount: 1 }) {
 
     newRow.querySelector('.deleteButton').addEventListener('click', () => {
         newRow.remove();
-        saveList();
+        getSavedLists();
     });
 
     return newRow;
@@ -51,7 +51,7 @@ function setSavedLists(lists) {
 addBtn.addEventListener('click', () => {
     const newRow = createRow();
     tableBody.appendChild(newRow);
-    saveList();
+    getSavedLists();
 });
 
 calcBtn.addEventListener('click', () => {
@@ -159,6 +159,24 @@ submitBtn.addEventListener('click', () => {
     renderSidebar();
 });
 
+function loadSpecificList(id) {
+    const lists = getSavedLists();
+    const list = lists.find(l => l.id === id);
+    if (!list) return;
+
+    tableBody.innerHTML = "";
+    list.items.forEach(item => {
+        tableBody.appendChild(createRow(item));
+    });
+}
+
+function deleteList(id) {
+    let lists = getSavedLists();
+    lists = lists.filter(l => l.id !== id);
+    setSavedLists(lists);
+    renderSidebar();
+}
+
 // togle mode
 
 const toggleBtn = document.getElementById('toggle-mode');
@@ -178,6 +196,7 @@ toggleBtn.addEventListener("click", () => {
 // load selected team
 window.addEventListener("DOMContentLoaded", () => {
     getSavedLists(); 
+    renderSidebar();
 
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
