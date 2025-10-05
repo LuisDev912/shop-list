@@ -28,35 +28,13 @@ function createRow(item = { name: "", price: "", amount: 1 }) {
 }
 
 //save and load data
-function saveList() {
-    const rows = [...document.querySelectorAll('#table-body tr')]; //this is for use array methods
-    const items = rows.map(row => { 
-        return {
-            name: row.querySelector('td:nth-child(1) input').value,
-            price: row.querySelector('td:nth-child(2) input').value,
-            amount: row.querySelector('td:nth-child(3) input').value
-        };
-    });
-    localStorage.setItem("shoppingList", JSON.stringify(items));
+function getSavedLists() {
+    return JSON.parse(localStorage.getItem("shoppingLists")) || [];
 }
 
-function loadList() {
-    const data = localStorage.getItem("shoppingList");
-    tableBody.innerHTML = "";
-
-    if (data) {
-        const items = JSON.parse(data);
-        if (items.length === 0) {
-            tableBody.appendChild(createRow()); // empty row
-        } else {
-            items.forEach(item => {
-                const newRow = createRow(item); // always with the listener
-                tableBody.appendChild(newRow);
-            });
-        }
-    } else {
-        tableBody.appendChild(createRow());
-    }
+// save all lists 
+function setSavedLists(lists) {
+    localStorage.setItem("shoppingLists", JSON.stringify(lists));
 }
 
 // functions
@@ -100,6 +78,7 @@ const sdbarContent = document.querySelector('.sidebar');
 const saveBtn = document.querySelector('.saveBtn');
 const saveName = document.getElementById('saveListName');
 const submitBtn = document.getElementById('submitName');
+const listContainer = document.querySelector('.list-container');
 
 oppenBtn.addEventListener('click', () => {
     sdbarContent.classList.toggle("active");
@@ -109,6 +88,9 @@ saveBtn.addEventListener('click', () => {
     saveName.classList.toggle('active');
     submitBtn.classList.toggle('active');
 });
+
+
+
 
 // togle mode
 
@@ -128,11 +110,12 @@ toggleBtn.addEventListener("click", () => {
 
 // load selected team
 window.addEventListener("DOMContentLoaded", () => {
-    loadList();
+    getSavedLists(); 
+
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
         document.body.classList.add("dark-mode");
     }
 });
 
-window.addEventListener("DOMContentLoaded", loadList);
+window.addEventListener("DOMContentLoaded", getSavedLists);
