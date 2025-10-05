@@ -60,7 +60,7 @@ calcBtn.addEventListener('click', () => {
     });
     totalSpan.textContent = total;
 
-    saveList();
+    getSavedLists();
 });
 
 resetBtn.addEventListener('click', () => {
@@ -89,7 +89,34 @@ saveBtn.addEventListener('click', () => {
     submitBtn.classList.toggle('active');
 });
 
+function renderSidebar() {
+    listContainer.innerHTML = ""; // clean
 
+    const lists = getSavedLists();
+    lists.forEach(list => {
+        const li = document.createElement('li');
+        li.classList.add('list-item');
+
+        li.innerHTML = `
+            <span class="list-name">${list.name}</span>
+            <small>${list.date}</small>
+            <button class="load-btn">Load</button>
+            <button class="delete-btn">Delete</button>
+        `;
+
+        // load list
+        li.querySelector('.load-btn').addEventListener('click', () => {
+            loadSpecificList(list.id);
+        });
+
+        // delete list
+        li.querySelector('.delete-btn').addEventListener('click', () => {
+            deleteList(list.id);
+        });
+
+        listContainer.appendChild(li);
+    });
+}
 
 
 // togle mode
