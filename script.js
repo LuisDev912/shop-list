@@ -52,7 +52,7 @@ function loadDraft() {
 
 //save and load data
 function getSavedLists() {
-    const saved = localStorage.getItem("lists");
+    const saved = localStorage.getItem("shoppingLists");
     if (!saved) {
         return []; // returns an empty array if there isn't anything
     }
@@ -72,27 +72,28 @@ function setSavedLists(lists) {
 // functions
 
 addBtn.addEventListener('click', () => {
-    const newRow = createRow();
-    tableBody.appendChild(newRow);
-    getSavedLists();
+    tableBody.appendChild(createRow());
+    saveDraft();
 });
 
 calcBtn.addEventListener('click', () => {
     const rows = document.querySelectorAll('#table-body tr');
     let total = 0;
-
     rows.forEach(row => {
         const name = row.querySelector('td:nth-child(1) input').value;
         const price = parseFloat(row.querySelector('td:nth-child(2) input').value);
         const amount = parseInt(row.querySelector('td:nth-child(3) input').value);
-
-        if (name !== "" && !isNaN(price) && !isNaN(amount)) {
-            total += price * amount;
-        }
+        if (name !== "" && !isNaN(price) && !isNaN(amount)) total += price * amount;
     });
     totalSpan.textContent = total;
+    saveDraft();
+});
 
-    getSavedLists();
+resetBtn.addEventListener('click', () => {
+    tableBody.innerHTML = "";
+    tableBody.appendChild(createRow());
+    totalSpan.textContent = "0";
+    saveDraft();
 });
 
 resetBtn.addEventListener('click', () => {
@@ -136,15 +137,8 @@ function renderSidebar() {
             <button class="delete-btn">Delete</button>
         `;
 
-        // load list
-        li.querySelector('.load-btn').addEventListener('click', () => {
-            loadSpecificList(list.id);
-        });
-
-        // delete list
-        li.querySelector('.delete-btn').addEventListener('click', () => {
-            deleteList(list.id);
-        });
+        li.querySelector('.load-btn').addEventListener('click', () => loadSpecificList(list.id));
+        li.querySelector('.delete-btn').addEventListener('click', () => deleteList(list.id));
 
         listContainer.appendChild(li);
     });
@@ -154,7 +148,6 @@ submitBtn.addEventListener('click', () => {
     const name = saveName.value.trim();
     if (!name) return;
 
-    // take items from the table
     const rows = [...document.querySelectorAll('#table-body tr')];
     const items = rows.map(row => ({
         name: row.querySelector('td:nth-child(1) input').value,
@@ -173,10 +166,11 @@ submitBtn.addEventListener('click', () => {
     lists.push(newList);
     setSavedLists(lists);
 
-    // clean table
+    // clean table and draft
     tableBody.innerHTML = "";
     tableBody.appendChild(createRow());
     totalSpan.textContent = "0";
+    localStorage.removeItem("currentDraft");
 
     saveName.value = "";
     renderSidebar();
@@ -188,9 +182,8 @@ function loadSpecificList(id) {
     if (!list) return;
 
     tableBody.innerHTML = "";
-    list.items.forEach(item => {
-        tableBody.appendChild(createRow(item));
-    });
+    list.items.forEach(item => tableBody.appendChild(createRow(item)));
+    saveDraft();
 }
 
 function deleteList(id) {
@@ -218,7 +211,15 @@ toggleBtn.addEventListener("click", () => {
 
 // load selected team
 window.addEventListener("DOMContentLoaded", () => {
-    getSavedLists(); 
+    const draft = localStorage.getItem("currentDraft");
+    if (draft) {
+        const items = JSON.parse(draft);
+        tableBody.innerHTML = "";
+        items.forEach(item => tableBody.appendChild(createRow(item)));
+    } else {
+        tableBody.appendChild(createRow());
+    }
+
     renderSidebar();
 
     const savedTheme = localStorage.getItem("theme");
@@ -226,5 +227,6 @@ window.addEventListener("DOMContentLoaded", () => {
         document.body.classList.add("dark-mode");
     }
 });
+
 
 window.addEventListener("DOMContentLoaded", getSavedLists);
