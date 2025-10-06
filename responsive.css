@@ -57,11 +57,21 @@
     }
 
     .sidebar.active {
-        width: 50vw;
+        width: 45vw;
     }
 
     .saveBtn{
         margin-left: 0;
+    }
+}
+
+@media (max-width: 765px) {
+    
+    .sidebar {
+        width: 0;
+    }
+    .sidebar.active {
+        width: 35vw;
     }
 }
 
