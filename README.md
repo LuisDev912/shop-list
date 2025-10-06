@@ -21,6 +21,21 @@ This project is currently in **v1.8.1**. Planned improvements include:
 - [X] Accessibility improvements (WCAG 2.1 compliance).
 - [X] Better responsive design (media queries).
 
+---
+
+## Project structure
+
+├── assets
+│ ├── css
+│ │ ├── styles.css # Principal styles
+│ │ └── responsive.css # Styles for media queries/responsive
+│ ├── js
+│ │ └── script.js # Functionalities
+├── index.html # Principal page
+├── LICENSE # Project license
+└── README.md # Project documentation
+
+---
 ## Tecnologies used
 - HTML 5
 - CSS3
