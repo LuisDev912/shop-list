@@ -80,13 +80,17 @@ th {
 /* footer */
 
 footer {
+    display: flex;
     margin-top: 75px;
-    text-align: center;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
 footer a{
     text-decoration: none;
-    color: black
+    color: black;
+    margin: 5px;
 }
 
 footer a:hover{
@@ -163,15 +167,13 @@ header h1{
 }
 
 .list-item {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
     align-items: center;
     margin-bottom: 15px;
     background-color: #fff;
     padding: 8px;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    flex-wrap: wrap;
 }
 
 .list-name {
