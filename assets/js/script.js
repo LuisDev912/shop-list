@@ -129,8 +129,8 @@ function renderSidebar() {
         li.innerHTML = `
             <span class="list-name">${list.name}</span>
             <small>${list.date}</small>
-            <button class="load-btn">Load</button>
-            <button class="delete-btn">Delete</button>
+            <button class="load-btn" aria-label="load list">Load</button>
+            <button class="delete-btn" aria-label="delete list">Delete</button>
         `;
 
         li.querySelector('.load-btn').addEventListener('click', () => loadSpecificList(list.id));
