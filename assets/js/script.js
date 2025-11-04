@@ -4,21 +4,16 @@ const addBtn = document.getElementById("addProduct");
 const calcBtn = document.getElementById("Calculate");
 const totalSpan = document.getElementById("total");
 const resetBtn = document.getElementById("Reset");
-let productCounter = 0;
 
-function createRow(item = { name: "", price: "", amount: 1 }) {
+function createRow(item = { id: crypto.randomUUID(), name: "", price: "", amount: 1 }) {
     const newRow = document.createElement('tr');
+    newRow.dataset.id = item.id; // save the ID in a row attribute
     newRow.innerHTML = `
-        <td><label for="product-name-${productCounter}" class="sr-only">Product name</label>
-            <input id="product-name-${productCounter}" type="text" value="${item.name}" placeholder="Product"></td>
-        <td><label for="product-price-${productCounter}" class="sr-only">Product price</label>
-            <input id="product-price-${productCounter}" type="number" value="${item.price}" placeholder="$" min="0"></td>
-        <td><label for="product-amount-${productCounter}" class="sr-only">Product amount</label>
-            <input id="product-amount-${productCounter}" type="number" value="${item.amount}" min="1"></td>
-        <td><label for="delete-product-${productCounter}" class="sr-only">Delete product</label>
-            <button id="delete-product-${productCounter}" class="deleteButton">&times;</button></td>
+        <td><input id="product-name-${item.id}" type="text" value="${item.name}" placeholder="Product"></td>
+        <td><input id="product-price-${item.id}" type="number" value="${item.price}" placeholder="$" min="0"></td>
+        <td><input id="product-amount-${item.id}" type="number" value="${item.amount}" min="1"></td>
+        <td><button id="delete-product-${item.id}" class="deleteButton">&times;</button></td>
     `;
-    productCounter++;
 
     newRow.querySelector('.deleteButton').addEventListener('click', () => {
         newRow.remove();
@@ -27,6 +22,7 @@ function createRow(item = { name: "", price: "", amount: 1 }) {
 
     return newRow;
 }
+
 
 function saveDraft() {
     const rows = [...document.querySelectorAll('#table-body tr')];
