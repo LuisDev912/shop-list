@@ -34,7 +34,9 @@ This project is currently in **v1.8.3**. Planned improvements include:
 │ │ └── script.js # Functionalities
 ├── index.html # Principal page
 ├── LICENSE # Project license
-└── README.md # Project documentation
+├── README.md # Project documentation
+├── sitemap.xml 
+└── robots.txt # Allows indexation
 ```
 
 ---

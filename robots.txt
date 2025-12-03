@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://LuisDev912.github.io/shop-list/sitemap.xml
