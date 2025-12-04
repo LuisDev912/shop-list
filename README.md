@@ -32,6 +32,9 @@ This project is currently in **v1.8.3**. Planned improvements include:
 │ │ └── responsive.css # Styles for media queries/responsive
 │ ├── js
 │ │ └── script.js # Functionalities
+│ ├── img
+│ │ └── logo.svg # the main logo
+│ │ └── favicon.png # an alternative logo
 ├── index.html # Principal page
 ├── LICENSE # Project license
 ├── README.md # Project documentation
