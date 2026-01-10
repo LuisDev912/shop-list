@@ -1,7 +1,9 @@
-# shop-list
-This is a **frontend project** that lets you manage a simple shopping list.  
-You can insert the name of a product, its price, and the amount of units/packages.  
-Then, the app will calculate the total price automatically and save your list in the browser using **localStorage**.
+# Fast Shopping List
+_Fast Shopping List_ is a simple **frontend project** that lets you create shopping lists and calculate total prices easily.
+
+You can insert the name of a product, its price, and the amount of units or packages.  
+The app automatically calculates the total cost and saves your lists in the browser using **localStorage**.
+
 
 ---
 
@@ -14,7 +16,7 @@ Then, the app will calculate the total price automatically and save your list in
 ---
 
 ## 📌 Roadmap / To Do
-This project is currently in **v1.8.4**. Planned improvements include:
+This project is currently in **v1.8.5**. Planned improvements include:
 - [X] Dark/Light mode.
 - [X] Delete products individually.
 - [X] Settings menu.
