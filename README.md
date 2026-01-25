@@ -32,6 +32,7 @@ This project is currently in **v1.8.5**. Planned improvements include:
 │ ├── css
 │ │ ├── styles.css # Principal styles
 │ │ └── responsive.css # Styles for media queries/responsive
+│ │ └── darkMode.css # Styles for dark mode
 │ ├── js
 │ │ └── script.js # Functionalities
 │ ├── img
