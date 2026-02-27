@@ -16,7 +16,7 @@ The app automatically calculates the total cost and saves your lists in the brow
 ---
 
 ## 📌 Roadmap / To Do
-This project is currently in **v1.8.5**. Planned improvements include:
+This project is currently in **v1.8.6**. Planned improvements include:
 - [X] Dark/Light mode.
 - [X] Delete products individually.
 - [X] Settings menu.

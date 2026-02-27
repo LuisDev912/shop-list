@@ -6,13 +6,14 @@ const totalSpan = document.getElementById("total");
 const resetBtn = document.getElementById("Reset");
 
 function createRow(item = { id: crypto.randomUUID(), name: "", price: "", amount: 1 }) {
+    const rowId = item?.id ?? crypto.randomUUID();
     const newRow = document.createElement('tr');
-    newRow.dataset.id = item.id; // save the ID in a row attribute
+    newRow.dataset.id = rowId; // save the ID in a row attribute
     newRow.innerHTML = `
-        <td><input id="product-name-${item.id}" type="text" value="${item.name}" placeholder="Product"></td>
-        <td><input id="product-price-${item.id}" type="number" value="${item.price}" placeholder="$" min="0"></td>
-        <td><input id="product-amount-${item.id}" type="number" value="${item.amount}" min="1"></td>
-        <td><button id="delete-product-${item.id}" class="deleteButton">&times;</button></td>
+        <td><input id="product-name-${rowId}" type="text" value="${item.name}" placeholder="Product"></td>
+        <td><input id="product-price-${rowId}" type="number" value="${item.price}" placeholder="$" min="0"></td>
+        <td><input id="product-amount-${rowId}" type="number" value="${item.amount}" min="1"></td>
+        <td><button id="delete-product-${rowId}" class="deleteButton">&times;</button></td>
     `;
 
     newRow.querySelector('.deleteButton').addEventListener('click', () => {
@@ -27,6 +28,7 @@ function createRow(item = { id: crypto.randomUUID(), name: "", price: "", amount
 function saveDraft() {
     const rows = [...document.querySelectorAll('#table-body tr')];
     const items = rows.map(row => ({
+        id: row.dataset.id,
         name: row.querySelector('td:nth-child(1) input').value,
         price: row.querySelector('td:nth-child(2) input').value,
         amount: row.querySelector('td:nth-child(3) input').value
@@ -146,6 +148,7 @@ submitBtn.addEventListener('click', () => {
 
     const rows = [...document.querySelectorAll('#table-body tr')];
     const items = rows.map(row => ({
+        id: row.dataset.id,
         name: row.querySelector('td:nth-child(1) input').value,
         price: row.querySelector('td:nth-child(2) input').value,
         amount: row.querySelector('td:nth-child(3) input').value
