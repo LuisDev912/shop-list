@@ -32,7 +32,10 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    transition: 0.1s;
+    transition: 
+        background-color 150ms ease,
+        box-shadow 150ms ease
+    ;
 }
 
 button:hover {
@@ -40,7 +43,7 @@ button:hover {
 }
 
 button:active{
-    font-size: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.473);
 }
 
 #toggle-mode{

@@ -58,3 +58,7 @@ body.dark-mode .list-item {
 body.dark-mode .saveBtn {
     background-color: #3d8641;
 }
+
+body.dark-mode button:active{
+    box-shadow: 0 4px 10px rgba(163, 163, 163, 0.473);;
+}
